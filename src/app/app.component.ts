@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ACC_LEADERBOARD } from './models/mockAccRevLeaderboard';
+import { EX_LEADERBOARD } from './models/mockEXathonLeaderboard';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ddr-leaderboard';
+  accLB = ACC_LEADERBOARD.sort((a, b) => b.score - a.score);
+  exLB = EX_LEADERBOARD.sort((a, b) => b.score - a.score);
+  leaderboard = this.accLB;
+  page = 1;
 }
