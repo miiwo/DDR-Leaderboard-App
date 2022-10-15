@@ -21,13 +21,15 @@ export class GoogleDriveProvider {
 
           if (data && data.length > 0) {
             data.forEach( (entry:any, i:number) => {
-              const obj : any = {
-                id: i,
-                name: entry[0],
-                score: entry[1]
-              };
-
-              returnArray.push(obj);
+              if (entry[0] && entry[1]) {
+                const obj : any = {
+                  id: i,
+                  name: entry[0],
+                  score: entry[1]
+                };
+  
+                returnArray.push(obj);
+              }
             });
           }
 
