@@ -291,6 +291,10 @@ svg#rocket-smoke {
     background-color: #f3f3f3;
 }
 
+.leaderboard-table tbody tr:nth-of-type(odd) {
+    background-color: #ffffff;
+}
+
 .leaderboard-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
