@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { ACC_LEADERBOARD } from './models/mockAccRevLeaderboard';
-import { EX_LEADERBOARD } from './models/mockEXathonLeaderboard';
+import { Component } from '@angular/core'
+import { LeaderboardItem } from './models/leaderboardItem'
+import { GoogleDriveProvider } from './services/GoogleSheetsService'
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,23 @@ import { EX_LEADERBOARD } from './models/mockEXathonLeaderboard';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ddr-leaderboard';
-  accLB = ACC_LEADERBOARD.sort((a, b) => b.score - a.score);
-  exLB = EX_LEADERBOARD.sort((a, b) => b.score - a.score);
-  leaderboard = this.accLB;
-  page = 1;
+  title = 'ddr-leaderboard'
+  leaderboard : LeaderboardItem[] = []
+  page = 1
+  buttonPressed = false
+
+  constructor(private googleSheets: GoogleDriveProvider) { }
+
+  async fetchData(ddrEvent : string) {
+    let data : LeaderboardItem[] = []
+
+    // fetch from data source and set leaderboard to data retrieved
+    this.googleSheets.getSheetData(ddrEvent).subscribe(res => {
+      console.log(res); 
+      this.leaderboard = res.sort((x : LeaderboardItem, y : LeaderboardItem) => y.score - x.score)
+      this.buttonPressed = true
+    })
+
+    this.leaderboard = data
+  }
 }
