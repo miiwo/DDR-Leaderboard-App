@@ -1,6 +1,11 @@
-# DdrLeaderboard
+# DDR Leaderboard (Node.js App)
 
-Leaderboard application that displays the top 10 scorers of a community event, with data sourced from Google Sheets.
+Little leaderboard application that displays the top 10 scores of a community event for the game DDR. Data is sourced from Google Sheets.
+
+Currently deployed with App Engine at: https://ontario-ddr-websites.nn.r.appspot.com/
+
+## Preqrequisites
+Node
 
 ## Development server
 
