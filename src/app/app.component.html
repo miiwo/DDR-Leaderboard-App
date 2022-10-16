@@ -58,6 +58,9 @@
   <p *ngIf="leaderboard.length === 0 && buttonPressed && !isLoading" style="margin-top: 10%; margin-bottom: 10%">
     There are no scores to show :(
   </p>
+  <p *ngIf="errorFound && !isLoading" style="margin-top: 10%; margin-bottom: 10%">
+    There was an error with fetching the data :(
+  </p>
 
   <pagination-controls (pageChange)="page = $event" class="my-pagination" *ngIf="leaderboard.length != 0 && leaderboard.length > 10 "></pagination-controls>
 
