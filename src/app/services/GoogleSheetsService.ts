@@ -11,7 +11,7 @@ export class GoogleDriveProvider {
 
   public getSheetData(sheetName : string): Observable<any> {
     const sheetId = '1V3ml0teqoIkuJ4RnQv6mhPGb8yL2QgM2YD5wsGXtL_k'
-    const apiKey = 'AIzaSyBLP1G1B5Z-Vl-d_Qoy91tyK7lMeWc9Nhg'
+    const apiKey = '<INSERT API KEY HERE>'
 
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/'${sheetName}'!A2:D?key=${apiKey}`
     return this.http.get(url).pipe(
