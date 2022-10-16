@@ -39,6 +39,7 @@ export class AppComponent {
           console.log('Response body:', err.error);
       }
 
+      this.isLoading = false
       this.errorFound = true
     })
 
